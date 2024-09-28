@@ -1,0 +1,1243 @@
+<!DOCTYPE html>
+<html lang="uk">
+
+<head>
+	<title>Головна</title>
+	<meta charset="UTF-8">
+	<meta name="format-detection" content="telephone=no">
+	<!-- <style>body{opacity: 0;}</style> -->
+	<link rel="stylesheet" href="css/style.min.css?_v=20240928232655">
+	<link rel="shortcut icon" href="favicon.ico">
+	<!-- <meta name="robots" content="noindex, nofollow"> -->
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body>
+	<div class="preloader-block">
+		<style>
+			.preloader {
+				position: fixed;
+				top: 0;
+				left: 0;
+				width: 100%;
+				height: 100%;
+				z-index: 9999;
+				background-color: #0a0a0a;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				flex-direction: column;
+			}
+
+			.preloader-screen {
+				width: 100%;
+				height: 100%;
+				position: absolute;
+				top: 0;
+				left: 0;
+				background: #0a0a0a;
+				opacity: 0;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				font-weight: 400;
+				font-size: 32px;
+				padding: 50px;
+				line-height: 135%;
+				text-transform: uppercase;
+				text-align: center;
+			}
+
+			.preloader-screen img {
+				max-width: 590px;
+				width: 100%;
+				object-fit: cover;
+			}
+
+			.preloader.hide .preloader-screen {
+				opacity: 0;
+				pointer-events: none;
+			}
+
+			.wrapper {
+				opacity: 0;
+				transition: opacity 0.6s ease-in-out;
+			}
+
+			@media (max-width: 767.98) {
+				.preloader-screen {
+					font-size: 26px;
+				}
+			}
+		</style>
+		<div class="preloader">
+			<div class="preloader-screen screen-1">
+				<img src="img/logo.svg" alt="Image">
+			</div>
+			<div class="preloader-screen screen-2">
+				<span>відновлюємо традиції</span>
+			</div>
+			<div class="preloader-screen screen-3">
+				<span>будуємо майбутнє</span>
+			</div>
+		</div>
+		<script>
+			document.documentElement.classList.add("lock");
+			document.addEventListener("DOMContentLoaded", function() {
+				const screens = document.querySelectorAll('.preloader-screen');
+				const pageWrapper = document.querySelector('.wrapper');
+				let currentIndex = 0;
+
+				function showNextScreen() {
+					if (currentIndex < screens.length) {
+						screens[currentIndex].style.opacity = '1'; // Показать текущий экран
+						setTimeout(() => {
+							screens[currentIndex].style.opacity = '0'; // Скрыть экран с анимацией
+							currentIndex++;
+							showNextScreen();
+						}, 1000); // Время показа каждого экрана (1000ms)
+					} else {
+						document.querySelector('.preloader').classList.add('hide');
+						setTimeout(() => {
+							document.querySelector('.preloader').style.opacity = '0';
+							document.querySelector('.preloader').style.display = 'none'; // Убираем прелоадер
+							pageWrapper.style.opacity = '1';
+							document.documentElement.classList.remove("lock");
+						}, 300); // Дождаться завершения анимации
+					}
+				}
+
+				showNextScreen(); // Запускаем показ прелоадера
+			});
+		</script>
+	</div>
+	<div class="wrapper">
+		<header class="header" data-lp>
+			<div class="header__container">
+				<div class="header__body">
+					<a href="" class="header__logo">
+						<img src="img/logo.svg" alt="logo">
+					</a>
+					<nav data-da=".big-menu__body, 1099.98" class="header__menu menu">
+						<ul class="menu__list">
+							<li class="menu__item">
+								<a href="#about" class="menu__link">Про проєкт</a>
+							</li>
+							<li class="menu__item">
+								<a href="#gallery" class="menu__link">Сколівський край</a>
+							</li>
+							<li class="menu__item">
+								<a href="#new-location" class="menu__link">Локації проєкту</a>
+							</li>
+							<li class="menu__item">
+								<a href="#contacts" class="menu__link">Контакти</a>
+							</li>
+						</ul>
+						<a href="tel:+380503251505" class="header__phone">+380 (50) 325 15 05</a>
+					</nav>
+					<button type="button" class="header__burger burger-btn">
+						<span class="burger-btn__text">
+							Меню
+						</span>
+						<span class="burger-btn__icon icon-menu"><span></span></span>
+					</button>
+					<div class="header__big-menu big-menu">
+						<nav class="big-menu__body">
+							<div class="big-menu__column">
+								<h3 class="big-menu__title">
+									Локації проєкту
+								</h3>
+								<ul class="big-menu__list">
+									<li class="big-menu__item">
+										<a href="" class="big-menu__link">
+											<span class="big-menu__link-text">
+												FRIESLAND
+											</span>
+											<span class="big-menu__link-subtext">
+												Кінний комплекс та екоготель
+											</span>
+										</a>
+									</li>
+									<li class="big-menu__item">
+										<a href="" class="big-menu__link">
+											<span class="big-menu__link-text">
+												Сколівські Бескиди
+											</span>
+											<span class="big-menu__link-subtext">
+												Житловий комплекс
+											</span>
+										</a>
+									</li>
+									<li class="big-menu__item">
+										<a href="" class="big-menu__link">
+											<span class="big-menu__link-text">
+												cASINO
+											</span>
+											<span class="big-menu__link-subtext">
+												Бізнес-хаб
+											</span>
+										</a>
+									</li>
+									<li class="big-menu__item">
+										<a href="" class="big-menu__link">
+											<span class="big-menu__link-text">
+												Hedonist
+											</span>
+											<span class="big-menu__link-subtext">
+												Клуб-готель закритого типу
+											</span>
+										</a>
+									</li>
+									<li class="big-menu__item">
+										<a href="" class="big-menu__link">
+											<span class="big-menu__link-text">
+												CarParty
+											</span>
+											<span class="big-menu__link-subtext">
+												Готельно-ресторанний арт комплекс
+											</span>
+										</a>
+									</li>
+								</ul>
+							</div>
+							<div class="big-menu__column">
+								<h3 class="big-menu__title">
+									Напрямки проєкту
+								</h3>
+								<ul class="big-menu__list">
+									<li class="big-menu__item">
+										<a href="" class="big-menu__link">
+											<span class="big-menu__link-text">
+												DRIVE
+											</span>
+											<span class="big-menu__link-subtext">
+												Hedonist Heritage Cars
+											</span>
+										</a>
+									</li>
+									<li class="big-menu__item">
+										<a href="" class="big-menu__link">
+											<span class="big-menu__link-text">
+												COLLECTION
+											</span>
+											<span class="big-menu__link-subtext">
+												Арт-простір «УКРАЇНСЬКА ДНК»
+											</span>
+										</a>
+									</li>
+									<li class="big-menu__item">
+										<a href="" class="big-menu__link">
+											<span class="big-menu__link-text">
+												SELECTION
+											</span>
+											<span class="big-menu__link-subtext">
+												Традиційні природні промисли
+											</span>
+										</a>
+									</li>
+								</ul>
+							</div>
+						</nav>
+					</div>
+				</div>
+			</div>
+		</header>
+		<main class="page">
+			<section class="hero">
+				<div class="hero__bg">
+					<picture>
+						<source srcset="img/hero-mob-bg.webp" media="(max-width: 767.98px)">
+						<img src="img/hero-bg.webp" alt="Image">
+					</picture>
+					<!-- <video src="img/video.mp4" playsinline autoplay loop muted></video> -->
+				</div>
+				<div class="hero__container">
+					<div class="hero__body">
+						<h1 class="hero__title">
+							Сколiвщина
+						</h1>
+						<div class="hero__text">
+							відновлюємо традиції, <br> будуємо майбутнє
+						</div>
+						<div class="hero__info">
+							Група девелоперських проєктів у Сколівському регіоні
+						</div>
+						<h2 class="hero__title hero__title--2">
+							Серце Карпат
+						</h2>
+					</div>
+				</div>
+			</section>
+			<section id="about" class="section-text">
+				<div class="section-text__container">
+					<h2 class="section-text__title title">
+						Про проєкт
+					</h2>
+					<div class="section-text__text">
+						<p class="section-text__value">
+							Наша концепція в Сколівському регіоні об'єднує інноваційні девелоперські проєкти, спрямовані
+							на збереження національної спадщини та розкриття потенціалу краю.
+							Ми будуємо сучасні відпочинкові та культурні арт-комплекси, житлові квартали та екоготелі,
+							поєднуючи традиційні українські ремесла з відновленням локальної архітектури. Кожен об'єкт
+							гармонійно інтегрує історію та культуру з передовими стандартами інфраструктури, створюючи
+							нові можливості для туристів та інвесторів. Цей проєкт є вагомою частиною формування
+							сучасного культурного коду України та піднесення туристичного потенціалу Сколівщини.
+						</p>
+						<div class="section-text__mask"></div>
+					</div>
+				</div>
+			</section>
+			<section class="about">
+				<div class="about__container">
+					<div class="about__content">
+						<div class="about__images">
+							<div class="about__img img-right">
+								<img src="img/about-image-1.webp" alt="Image">
+							</div>
+						</div>
+						<div class="about__info">
+							<div class="about__head">
+								<h4 class="about__subtitle">
+									НАША МІСІЯ
+								</h4>
+								<h3 class="about__title">
+									Формування <br>
+									нового коду нації
+								</h3>
+							</div>
+							<div class="about__text">
+								<p>
+									Ми прагнемо створити новий культурний код України, відкриваючи нові горизонти
+									національної спадщини через сучасне переосмислення вікових традицій.
+								</p>
+								<p>
+									Відроджуємо та популяризуємо українські ремесла й культурні практики, зокрема
+									бджолярство, конярство та форелеве господарство, які збереглися з часів Трипільської
+									культури. Будуючи майбутнє, ми шануємо та примножуємо багатовікову спадщину, вносячи
+									її в сучасність і забезпечуючи її передачу майбутнім поколінням.
+								</p>
+								<h5>
+									Основні напрямки проєкту:
+								</h5>
+								<ul>
+									<li>
+										Спадщина Трипільської культури
+									</li>
+									<li>
+										Музей толерантності усіх релігій світу
+									</li>
+									<li>
+										Гемологія: дослідження мінералів та каменів
+									</li>
+									<li>
+										Відновлення локальної бойківської архітектури
+									</li>
+									<li>
+										Традиційне конярство
+									</li>
+									<li>
+										Бджолярство
+									</li>
+									<li>
+										Форелеве господарство
+									</li>
+									<li>
+										Устрична ферма
+									</li>
+									<li>
+										Соколиний заповідник
+									</li>
+									<li>
+										Ексклюзивні автомобілі
+									</li>
+								</ul>
+							</div>
+						</div>
+					</div>
+					<div class="about__content">
+						<div class="about__info">
+							<div class="about__head">
+								<h4 class="about__subtitle">
+									НАША ВІЗІЯ
+								</h4>
+								<h3 class="about__title">
+									Створення майданчику регіонального розвитку
+								</h3>
+							</div>
+							<div class="about__text">
+								<p>
+									Ми бачимо Сколівські Карпати як центр регіонального розвитку та культурної спадщини,
+									де гармонійно поєднуються історія, туризм і сучасна інфраструктура. Проєкт
+									спрямований на створення мережі експозицій, рекреаційних, туристично-інформаційних і
+									розважальних локацій, які піднімуть історично-культурний пласт Сколівщини, зокрема,
+									часів сім’ї Гредлів. Ми розвиваємо бренд Сколівських Карпат, підвищуємо туристичний
+									потенціал регіону, залучаємо інвестиції та створюємо додану вартість.
+								</p>
+								<p>
+									Наші інтерактивні експозиції, що охоплюють трипільську кераміку, конярство,
+									бойківську архітектуру та інші артефакти, популяризують Україну у світі, привертаючи
+									увагу до багатства нашої історії та культури. Проєкт підтримує концепцію клубного
+									формату відпочинку, забезпечуючи гостям доступ до автентичних культурних досвідів у
+									серці Карпат.
+								</p>
+							</div>
+						</div>
+						<div class="about__images">
+							<div class="about__img">
+								<img src="img/about-image-2.webp" alt="Image">
+							</div>
+							<div class="about__img">
+								<img src="img/about-image-3.webp" alt="Image">
+							</div>
+							<div class="about__img img-long">
+								<img src="img/about-image-4.webp" alt="Image">
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+			<div class="scroll-lines">
+				<div class="scroll-lines__line">
+					<div class="scroll-lines__line-texts scroll-lines__left">
+						<div class="scroll-lines__text">
+							відновлюємо традиції, будуємо майбутнє
+						</div>
+						<div class="scroll-lines__text">
+							Група девелоперських проєктів у Сколівському регіоні
+						</div>
+						<div class="scroll-lines__text">
+							відновлюємо традиції, будуємо майбутнє
+						</div>
+					</div>
+				</div>
+				<div class="scroll-lines__line">
+					<div class="scroll-lines__line-texts scroll-lines__right">
+						<div class="scroll-lines__text">
+							Група девелоперських проєктів у Сколівському регіоні
+						</div>
+						<div class="scroll-lines__text">
+							відновлюємо традиції, будуємо майбутнє
+						</div>
+						<div class="scroll-lines__text">
+							Група девелоперських проєктів у Сколівському регіоні
+						</div>
+					</div>
+				</div>
+			</div>
+			<section id="gallery" class="section-text">
+				<div class="section-text__container">
+					<h2 class="section-text__title title">
+						СКОЛІВЩИНА
+					</h2>
+					<div class="section-text__text">
+						<p class="section-text__value">
+							Край гір, працьовитих бойків, природних див, резерват самобутньої природи в околицях
+							курортної місцевості.
+						</p>
+						<div class="section-text__mask"></div>
+					</div>
+				</div>
+			</section>
+			<section class="gallery">
+				<div class="gallery__body">
+					<div class="gallery__item">
+						<img class="gallery__img" src="img/gallery/image-1.webp" alt="Image">
+						<h5 class="gallery__title">
+							Кам'янецький водоспад
+						</h5>
+						<div class="gallery__info">
+							<h5 class="gallery__title">
+								Кам'янецький водоспад
+							</h5>
+							<div class="gallery__text">
+								<p>
+									Один із найвідоміших на Львівщині, розташувався посеред лісистих схилів
+									національного парку. Перепад висот падіння води у ньому сягає 6 м. Водоспад Кам'янка
+									складається із одного каскаду, який скельним виступом ділиться на два потоки.
+								</p>
+							</div>
+						</div>
+					</div>
+					<div class="gallery__item">
+						<img class="gallery__img" src="img/gallery/image-2.webp" alt="Image">
+						<h5 class="gallery__title">
+							Урицькі скелі
+						</h5>
+						<div class="gallery__info">
+							<h5 class="gallery__title">
+								Урицькі скелі
+							</h5>
+							<div class="gallery__text">
+								<p>
+									Природна пам'ятка IX-XIII ст. Колись тут був наскельний оборонний комплекс
+									міста-фортеці Тустань.
+								</p>
+								<p>
+									Тустань - одне з найгарніших і наймальовничіших місць в Україні. Це гряда
+									каменів-пісковиків у вигляді скель посеред Карпат. В різні часи на скелях були
+									святилища, давньоруський оборонний комплекс, митниця і місто-фортеця.
+								</p>
+							</div>
+						</div>
+					</div>
+					<div class="gallery__item">
+						<img class="gallery__img" src="img/gallery/image-3.webp" alt="Image">
+						<h5 class="gallery__title">
+							Палац баронів Гредлів
+						</h5>
+						<div class="gallery__info">
+							<h5 class="gallery__title">
+								Палац баронів Гредлів
+							</h5>
+							<div class="gallery__text">
+								<p>
+									Пам'ятка архітектури місцевого значення поблизу Сколе. Збудований у стилі необароко.
+									Палац і парк в середині XIX століття заклав барон Еугеніуш Кінскі. Вигравши гроші у
+									казино, австрієць за походженням Гредель у 1886 році купив палац і місцеві ліси. Він
+									був найбільшим свого часу власником лісів на Сколівщині.
+								</p>
+							</div>
+						</div>
+					</div>
+					<div class="gallery__item">
+						<img class="gallery__img" src="img/gallery/image-4.webp" alt="Image">
+						<h5 class="gallery__title">
+							Історико-краєзнавчий музей «Сколівщина»
+						</h5>
+						<div class="gallery__info">
+							<h5 class="gallery__title">
+								Історико-краєзнавчий музей «Сколівщина»
+							</h5>
+							<div class="gallery__text">
+								<p>
+									Музейні експозиції розміщені на трьох поверхах, у 12 виставкових залах. Серед
+									зібраного містяться  речі побуту горян, елементи народних ремесел, природніх принад,
+									представлено інтер’єр бойківської хати, національні строї, старовинні ікони, вишиті
+									сорочки, прадавнє взуття. Окремо представлені — військова атрибутика.
+								</p>
+							</div>
+						</div>
+					</div>
+					<div class="gallery__item">
+						<img class="gallery__img" src="img/gallery/image-5.webp" alt="Image">
+						<h5 class="gallery__title">
+							Журавлине озеро («Мертве»)
+						</h5>
+						<div class="gallery__info">
+							<h5 class="gallery__title">
+								Журавлине озеро («Мертве»)
+							</h5>
+							<div class="gallery__text">
+								<p>
+									Розташоване поблизу водоспаду Кам’янка, знаходиться на висоті 620 м.н.р.м. та має
+									неправильну овальну форму завдовжки близько 50 м.
+								</p>
+								<p>
+									Народна назва «Мертве озеро», мабуть виникла тому, що в ньому, начебто, нічого не
+									росте і немає жодної живої істоти. Але якщо уважно подивитися у воду, то можна
+									побачити, що озеро – живе. В намулі метушаться представники членистоногих, зокрема
+									невеликі, майже прозорі рачки, пропливають личинки бабок.
+								</p>
+							</div>
+						</div>
+					</div>
+					<div class="gallery__item">
+						<img class="gallery__img" src="img/gallery/image-6.webp" alt="Image">
+						<h5 class="gallery__title">
+							Гора Парашка
+						</h5>
+						<div class="gallery__info">
+							<h5 class="gallery__title">
+								Гора Парашка
+							</h5>
+							<div class="gallery__text">
+								<p>
+									Найвища вершина Сколівських Бескидів. Висота її становить 1268 метрів над рівнем
+									моря. Геологічні породи, якими складена гора, – м’які, легко під­даються
+									вивітрюванню, тому вершина має заокруглену мформу. Ціка­вими є й рослинні
+									угруповання. На полонині зростають червоно­книжні види, зокрема представники родини
+									зозулинцевих.
+								</p>
+							</div>
+						</div>
+					</div>
+					<div class="gallery__item">
+						<img class="gallery__img" src="img/gallery/image-7.webp" alt="Image">
+						<h5 class="gallery__title">
+							Водоспад Гуркало
+						</h5>
+						<div class="gallery__info">
+							<h5 class="gallery__title">
+								Водоспад Гуркало
+							</h5>
+							<div class="gallery__text">
+								<p>
+									Розташований на річці Велика Річка (притока Стрию), за 4 км на південний захід від
+									автомобільного мосту в центрі села Корчина.
+								</p>
+								<p>
+									Висота над рівнем моря — 570 м. Водоспад складається з одного каскаду, розділеного
+									скельним виступом
+									на два потоки, один з яких значно повноводніший від іншого.
+									Вода падає з висоти 5 м.
+								</p>
+							</div>
+						</div>
+					</div>
+					<div class="gallery__item">
+						<img class="gallery__img" src="img/gallery/image-8.webp" alt="Image">
+						<h5 class="gallery__title">
+							Гора Лопата
+						</h5>
+						<div class="gallery__info">
+							<h5 class="gallery__title">
+								Гора Лопата
+							</h5>
+							<div class="gallery__text">
+								<p>
+									Гірська вершина висотою 1211 метрів над рівнем моря. Тут в 1944 році  відбувся 10
+									денний бій між УПА та об'єднаними німецько-угорськими військами. Пам'яті бійців УПА
+									встановлений хрест. З вершини відкривається природна панорама навколишніх гір та
+									поселень.
+								</p>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+			<section class="location">
+				<div class="location__container">
+					<div class="location__body">
+						<div class="location__content">
+							<h2 class="location__title title">
+								Сколівські <br>
+								Бескиди
+							</h2>
+							<h3 class="location__subtitle">
+								Площа національного природнього парку 243.69 км<sup>2</sup>
+							</h3>
+							<div class="location__info">
+								<div class="location__column">
+									<div class="location__item">
+										<div class="location__item-title">
+											1165
+										</div>
+										<div class="location__item-text">
+											видів рослин
+										</div>
+									</div>
+									<div class="location__item">
+										<div class="location__item-title">
+											20
+										</div>
+										<div class="location__item-text">
+											видів риби
+										</div>
+									</div>
+									<div class="location__item">
+										<div class="location__item-title">
+											142
+										</div>
+										<div class="location__item-text">
+											видів комах
+										</div>
+									</div>
+									<div class="location__item">
+										<div class="location__item-title">
+											40
+										</div>
+										<div class="location__item-text">
+											червонокнижних <br>
+											видів рослин
+										</div>
+									</div>
+								</div>
+								<div class="location__column">
+									<div class="location__item">
+										<div class="location__item-title">
+											52
+										</div>
+										<div class="location__item-text">
+											видів савців
+										</div>
+									</div>
+									<div class="location__item">
+										<div class="location__item-title">
+											154
+										</div>
+										<div class="location__item-text">
+											видів птахів
+										</div>
+									</div>
+									<div class="location__item">
+										<div class="location__item-title">
+											6
+										</div>
+										<div class="location__item-text">
+											водоспади
+										</div>
+									</div>
+									<div class="location__item">
+										<div class="location__item-title">
+											19
+										</div>
+										<div class="location__item-text">
+											туристичних <br>
+											шляхів
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="location__map">
+							<div id="map"></div>
+							<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCvP03vsDkuiunV1yBBgK8hD9uoWEmGPsU&callback=initMap&_v=20230829130234"></script>
+							<script>
+								// Initialize and add the map
+								function initMap() {
+									var map;
+									var bounds = new google.maps.LatLngBounds();
+									var mapOptions = {
+										mapTypeId: 'hybrid'
+									};
+
+									// Display a map on the web page
+									map = new google.maps.Map(document.getElementById("map"), mapOptions);
+									map.setTilt(50);
+
+									// Multiple markers location, latitude, and longitude
+									var markers = [
+										['Кінний комплекс та екоготель FRIESLAND', 49.100469, 23.572462, "img/marker-4.webp"],
+										['Житловий комплекс “Сколівські Бескиди”', 49.03140413494641, 23.50637946733749, "img/marker-4.webp"],
+										['Бізнес-хаб Casino', 49.025355999999995, 23.495766000000003, "img/marker-4.webp"],
+										['Клуб-готель закритого типу Hedonist, Готельно-ресторанний арт комплекс CarParty', 49.005489999999995, 23.440157, "img/marker-4.webp"],
+										['Верхове болото Селища', 49.0285, 23.146829999999994, "img/marker-3.webp"],
+										['Росохацькі полонини', 49.046901433953444, 23.222607446303154, "img/marker.webp"],
+										['Тустань', 49.191429, 23.407531000000002, "img/marker.webp"],
+										['Гора Парашка', 49.07034300000001, 23.404860000000003, "img/marker.webp"],
+										['Водоспад Гуркало', 49.084309, 23.470241, "img/marker-3.webp"],
+										['Вічнозелений Тризуб', 49.11296, 23.483919999999998, "img/marker-5.webp"],
+										['Лопата', 48.984770000000005, 23.53804, "img/marker.webp"],
+										['Водоспад Кам’янка', 49.03347699999999, 23.561736, "img/marker-3.webp"],
+										['Журавлине озеро', 49.033240000000006, 23.568814, "img/marker-2.webp"],
+
+									];
+
+									var infoWindowContent = [
+										[
+											`
+											<div class="location__marker marker-map">
+												<div class="marker-map__img">
+													<img src="img/map-image/image-13.webp" alt="Image">
+												</div>
+												<div class="marker-map__body">
+													<div class="marker-map__name">
+														Кінний комплекс та екоготель FRIESLAND
+													</div>
+												</div>
+											</div>
+											`
+										],
+										[
+											`
+											<div class="location__marker marker-map">
+												<div class="marker-map__img">
+													<img src="img/map-image/image-12.webp" alt="Image">
+												</div>
+												<div class="marker-map__body">
+													<div class="marker-map__name">
+														Житловий комплекс “Сколівські Бескиди”
+													</div>
+												</div>
+											</div>
+											`
+										],
+										[
+											`
+											<div class="location__marker marker-map">
+												<div class="marker-map__img">
+													<img src="img/map-image/image-11.webp" alt="Image">
+												</div>
+												<div class="marker-map__body">
+													<div class="marker-map__name">
+														Бізнес-хаб Casino
+													</div>
+												</div>
+											</div>
+											`
+										],
+										[
+											`
+											<div class="location__marker marker-map">
+												<div class="marker-map__img">
+													<img src="img/map-image/image-10.webp" alt="Image">
+												</div>
+												<div class="marker-map__body">
+													<div class="marker-map__name">
+														Клуб-готель закритого типу Hedonist, <br/> Готельно-ресторанний арт комплекс CarParty
+													</div>
+												</div>
+											</div>
+											`
+										],
+										[
+											`
+											<div class="location__marker marker-map">
+												<div class="marker-map__img">
+													<img src="img/map-image/image-1.webp" alt="Image">
+												</div>
+												<div class="marker-map__body">
+													<div class="marker-map__name">
+														Верхове болото Селища
+													</div>
+												</div>
+											</div>
+											`
+										],
+										[
+											`
+											<div class="location__marker marker-map">
+												<div class="marker-map__img">
+													<img src="img/map-image/image-2.webp" alt="Image">
+												</div>
+												<div class="marker-map__body">
+													<div class="marker-map__name">
+														Росохацькі полонини
+													</div>
+												</div>
+											</div>
+											`
+										],
+										[
+											`
+											<div class="location__marker marker-map">
+												<div class="marker-map__img">
+													<img src="img/map-image/image-3.webp" alt="Image">
+												</div>
+												<div class="marker-map__body">
+													<div class="marker-map__name">
+														Тустань
+													</div>
+												</div>
+											</div>
+											`
+										],
+										[
+											`
+											<div class="location__marker marker-map">
+												<div class="marker-map__img">
+													<img src="img/map-image/image-4.webp" alt="Image">
+												</div>
+												<div class="marker-map__body">
+													<div class="marker-map__name">
+														Гора Парашка
+													</div>
+												</div>
+											</div>
+											`
+										],
+										[
+											`
+											<div class="location__marker marker-map">
+												<div class="marker-map__img">
+													<img src="img/map-image/image-5.webp" alt="Image">
+												</div>
+												<div class="marker-map__body">
+													<div class="marker-map__name">
+														Водоспад Гуркало
+													</div>
+												</div>
+											</div>
+											`
+										],
+										[
+											`
+											<div class="location__marker marker-map">
+												<div class="marker-map__img">
+													<img src="img/map-image/image-6.webp" alt="Image">
+												</div>
+												<div class="marker-map__body">
+													<div class="marker-map__name">
+														Вічнозелений Тризуб
+													</div>
+												</div>
+											</div>
+											`
+										],
+										[
+											`
+											<div class="location__marker marker-map">
+												<div class="marker-map__img">
+													<img src="img/map-image/image-7.webp" alt="Image">
+												</div>
+												<div class="marker-map__body">
+													<div class="marker-map__name">
+														Лопата
+													</div>
+												</div>
+											</div>
+											`
+										],
+										[
+											`
+											<div class="location__marker marker-map">
+												<div class="marker-map__img">
+													<img src="img/map-image/image-8.webp" alt="Image">
+												</div>
+												<div class="marker-map__body">
+													<div class="marker-map__name">
+														Водоспад Кам’янка
+													</div>
+												</div>
+											</div>
+											`
+										],
+										[
+											`
+											<div class="location__marker marker-map">
+												<div class="marker-map__img">
+													<img src="img/map-image/image-9.webp" alt="Image">
+												</div>
+												<div class="marker-map__body">
+													<div class="marker-map__name">
+														Журавлине озеро
+													</div>
+												</div>
+											</div>
+											`
+										],
+									];
+
+									var infoWindow = new google.maps.InfoWindow(),
+										marker, i;
+
+									// Place each marker on the map  
+									for (i = 0; i < markers.length; i++) {
+										var position = new google.maps.LatLng(markers[i][1], markers[i][2]);
+										bounds.extend(position);
+										marker = new google.maps.Marker({
+											position: position,
+											map: map,
+											title: markers[i][0],
+											icon: {
+												url: markers[i][3],
+												scaledSize: new google.maps.Size(40, 40), // Размеры маркера
+												size: new google.maps.Size(40, 40),
+											}
+										});
+										// Add info window to marker    
+										google.maps.event.addListener(marker, 'click', (function(marker, i) {
+											return function() {
+												infoWindow.setContent(infoWindowContent[i][0]);
+												infoWindow.open(map, marker);
+											}
+										})(marker, i));
+										// Center the map to fit all markers on the screen
+										map.fitBounds(bounds);
+									}
+
+									// Set zoom level
+									var boundsListener = google.maps.event.addListener((map), 'bounds_changed', function(event) {
+										this.setZoom(10);
+										google.maps.event.removeListener(boundsListener);
+									});
+								}
+
+								window.initMap = initMap;
+							</script>
+						</div>
+					</div>
+				</div>
+			</section>
+			<section id="new-location" class="section-text">
+				<div class="section-text__container">
+					<h2 class="section-text__title title">
+						Нові унікальні локації
+					</h2>
+					<div class="section-text__text">
+						<p class="section-text__value">
+							Розвиток туризму, культури та економіки в серці Сколівщини
+						</p>
+						<div class="section-text__mask"></div>
+					</div>
+				</div>
+			</section>
+			<section class="new-location">
+				<div class="new-location__container">
+					<div class="new-location__body">
+						<div class="new-location__item long-item">
+							<img class="new-location__item-img" src="img/new-location/image-1.webp" alt="Image">
+							<div class="new-location__item-head">
+								<h3 class="new-location__item-title">
+									FRIESLAND
+								</h3>
+								<h5 class="new-location__item-subtitle">
+									Кінний комплекс та екоготель
+								</h5>
+							</div>
+							<div class="new-location__info">
+								<h3 class="new-location__item-title">
+									FRIESLAND
+								</h3>
+								<h5 class="new-location__item-subtitle">
+									Кінний комплекс та екоготель
+								</h5>
+								<div class="new-location__item-text">
+									<p>
+										Край гір, працьовитих бойків, природних див, резерват самобутньої природи в
+										околицях курортної місцевості.
+									</p>
+								</div>
+								<div class="new-location__item-bottom">
+									<div class="new-location__item-location">
+										м. Сколе
+									</div>
+									<a href="" class="new-location__item-btn button">
+										Детальніше
+									</a>
+								</div>
+							</div>
+						</div>
+						<div class="new-location__item">
+							<img class="new-location__item-img" src="img/new-location/image-2.webp" alt="Image">
+							<div class="new-location__item-head">
+								<h3 class="new-location__item-title">
+									Сколівські Бескиди
+								</h3>
+								<h5 class="new-location__item-subtitle">
+									Житловий комплекс
+								</h5>
+							</div>
+							<div class="new-location__info">
+								<h3 class="new-location__item-title">
+									Сколівські Бескиди
+								</h3>
+								<h5 class="new-location__item-subtitle">
+									Житловий комплекс
+								</h5>
+								<div class="new-location__item-text">
+									<p>
+										Край гір, працьовитих бойків, природних див, резерват самобутньої природи в
+										околицях курортної місцевості.
+									</p>
+								</div>
+								<div class="new-location__item-bottom">
+									<div class="new-location__item-location">
+										м. Сколе
+									</div>
+									<a href="" class="new-location__item-btn button">
+										Детальніше
+									</a>
+								</div>
+							</div>
+						</div>
+						<div class="new-location__item">
+							<img class="new-location__item-img" src="img/new-location/image-3.webp" alt="Image">
+							<div class="new-location__item-head">
+								<h3 class="new-location__item-title">
+									CASINO
+								</h3>
+								<h5 class="new-location__item-subtitle">
+									Бізнес-хаб
+								</h5>
+							</div>
+							<div class="new-location__info">
+								<h3 class="new-location__item-title">
+									CASINO
+								</h3>
+								<h5 class="new-location__item-subtitle">
+									Бізнес-хаб
+								</h5>
+								<div class="new-location__item-text">
+									<p>
+										Край гір, працьовитих бойків, природних див, резерват самобутньої природи в
+										околицях курортної місцевості.
+									</p>
+								</div>
+								<div class="new-location__item-bottom">
+									<div class="new-location__item-location">
+										м. Сколе
+									</div>
+									<a href="" class="new-location__item-btn button">
+										Детальніше
+									</a>
+								</div>
+							</div>
+						</div>
+						<div class="new-location__item">
+							<img class="new-location__item-img" src="img/new-location/image-4.webp" alt="Image">
+							<div class="new-location__item-head">
+								<h3 class="new-location__item-title">
+									Hedonist
+								</h3>
+								<h5 class="new-location__item-subtitle">
+									Клуб-готель закритого типу
+								</h5>
+							</div>
+							<div class="new-location__info">
+								<h3 class="new-location__item-title">
+									Hedonist
+								</h3>
+								<h5 class="new-location__item-subtitle">
+									Клуб-готель закритого типу
+								</h5>
+								<div class="new-location__item-text">
+									<p>
+										Край гір, працьовитих бойків, природних див, резерват самобутньої природи в
+										околицях курортної місцевості.
+									</p>
+								</div>
+								<div class="new-location__item-bottom">
+									<div class="new-location__item-location">
+										м. Сколе
+									</div>
+									<a href="" class="new-location__item-btn button">
+										Детальніше
+									</a>
+								</div>
+							</div>
+						</div>
+						<div class="new-location__item">
+							<img class="new-location__item-img" src="img/new-location/image-5.webp" alt="Image">
+							<div class="new-location__item-head">
+								<h3 class="new-location__item-title">
+									CarParty
+								</h3>
+								<h5 class="new-location__item-subtitle">
+									Готельно-ресторанний арт комплекс
+								</h5>
+							</div>
+							<div class="new-location__info">
+								<h3 class="new-location__item-title">
+									CarParty
+								</h3>
+								<h5 class="new-location__item-subtitle">
+									Готельно-ресторанний арт комплекс
+								</h5>
+								<div class="new-location__item-text">
+									<p>
+										Край гір, працьовитих бойків, природних див, резерват самобутньої природи в
+										околицях курортної місцевості.
+									</p>
+								</div>
+								<div class="new-location__item-bottom">
+									<div class="new-location__item-location">
+										м. Сколе
+									</div>
+									<a href="" class="new-location__item-btn button">
+										Детальніше
+									</a>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+		</main>
+		<footer id="contacts" class="footer">
+			<div class="footer__container">
+				<div class="footer__body">
+					<div class="footer__content">
+						<div class="footer__column">
+							<a href="" class="footer__logo">
+								<img src="img/logo.svg" alt="logo">
+							</a>
+							<div class="footer__inner">
+								<h6 class="footer__title">
+									Головний офіс
+								</h6>
+								<a href="" class="footer__link">
+									с. Пасіки-Зубрицькі, вул. Дорожна, 62 (Львівська обл.)
+								</a>
+							</div>
+						</div>
+						<div class="footer__column">
+							<div class="footer__inner">
+								<h6 class="footer__title">
+									Телефон
+								</h6>
+								<a href="tel:+380503251505" class="footer__link">
+									+380 50 325 15 05
+								</a>
+							</div>
+							<div class="footer__inner">
+								<h6 class="footer__title">
+									Email
+								</h6>
+								<a href="mailto:lviv.krym@gmail.com" class="footer__link">
+									lviv.krym@gmail.com
+								</a>
+							</div>
+						</div>
+						<div class="footer__column">
+							<div class="footer__inner">
+								<h6 class="footer__title">
+									Месенджери
+								</h6>
+								<a href="" class="footer__link">
+									Telegram
+								</a>
+								<a href="" class="footer__link">
+									Viber
+								</a>
+								<a href="" class="footer__link">
+									Whatsapps
+								</a>
+							</div>
+						</div>
+					</div>
+					<button data-popup="#popup" type="button" class="footer__contact-link">
+						<span>Співпраця та <br> інвестування</span>
+					</button>
+				</div>
+				<div class="footer__copy">
+					© 2024 Phoenix & Hedonist
+				</div>
+			</div>
+		</footer>
+	</div>
+	<button type="button" class="scroll-top hide">
+		<svg width="60" height="60" viewBox="0 0 60 60" stroke="currentColor" xmlns="http://www.w3.org/2000/svg">
+			<circle cx="30" cy="30" r="29.5" transform="matrix(1 8.74228e-08 8.74228e-08 -1 0 60)" />
+			<path d="M18 34L30 22L42 34" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+		</svg>
+	</button>
+	<div id="popup" aria-hidden="true" class="popup">
+		<div class="popup__wrapper">
+			<div class="popup__content">
+				<button data-close type="button" class="popup__close">
+					<svg width="14" height="14" viewBox="0 0 14 14" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+						<path d="M0.426356 13.5906C0.688251 13.8527 1.04341 14 1.41373 14C1.78405 14 2.13921 13.8527 2.4011 13.5906L7 8.98595L11.5989 13.5906C11.8623 13.8453 12.2151 13.9862 12.5812 13.9831C12.9474 13.9799 13.2977 13.8328 13.5566 13.5736C13.8156 13.3143 13.9624 12.9636 13.9656 12.597C13.9688 12.2303 13.828 11.8771 13.5736 11.6134L8.97474 7.00874L13.5736 2.4041C13.707 2.27511 13.8134 2.12081 13.8866 1.95021C13.9598 1.77962 13.9983 1.59613 13.9999 1.41046C14.0016 1.2248 13.9662 1.04067 13.896 0.868819C13.8258 0.696971 13.7221 0.540847 13.591 0.409556C13.4598 0.278264 13.3039 0.174435 13.1323 0.104127C12.9606 0.0338188 12.7767 -0.0015606 12.5913 5.27961e-05C12.4059 0.00166619 12.2226 0.0402404 12.0522 0.113525C11.8818 0.186809 11.7277 0.293335 11.5989 0.426888L7 5.03153L2.4011 0.426888C2.27227 0.293335 2.11817 0.186809 1.94778 0.113525C1.7774 0.0402404 1.59414 0.00166619 1.4087 5.27961e-05C1.22327 -0.0015606 1.03937 0.0338188 0.867735 0.104127C0.696102 0.174435 0.540172 0.278264 0.409045 0.409556C0.277917 0.540847 0.174218 0.696971 0.103997 0.868819C0.0337766 1.04067 -0.00155865 1.2248 5.27303e-05 1.41046C0.00166411 1.59613 0.0401902 1.77962 0.113383 1.95021C0.186576 2.12081 0.292969 2.27511 0.426356 2.4041L5.02525 7.00874L0.426356 11.6134C0.16454 11.8756 0.0174596 12.2312 0.0174596 12.602C0.0174596 12.9728 0.16454 13.3284 0.426356 13.5906Z" />
+					</svg>
+				</button>
+				<div class="popup__body">
+					<h3 class="popup__title">
+						Залиште ваші контакти
+					</h3>
+					<form data-ajax action="files/sendmail/sendmail.php" method="POST" class="popup__form">
+						<div class="popup__field">
+							<svg class="popup__field-icon" width="25" height="25" viewBox="0 0 25 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+								<path d="M21.3388 3.66116C18.9779 1.30024 15.8388 0 12.5 0C9.16119 0 6.02207 1.30024 3.66116 3.66116C1.30024 6.02207 0 9.16119 0 12.5C0 15.8388 1.30024 18.9779 3.66116 21.3388C6.02207 23.6998 9.16119 25 12.5 25C15.8388 25 18.9779 23.6998 21.3388 21.3388C23.6998 18.9779 25 15.8388 25 12.5C25 9.16119 23.6998 6.02207 21.3388 3.66116ZM5.42507 20.9618C5.83782 17.4103 8.8913 14.6683 12.5 14.6683C14.4024 14.6683 16.1913 15.4095 17.5369 16.7549C18.6737 17.8919 19.3907 19.3764 19.5751 20.9616C17.6582 22.567 15.1901 23.5352 12.5 23.5352C9.80988 23.5352 7.34196 22.5672 5.42507 20.9618ZM12.5 13.1596C10.4067 13.1596 8.70342 11.4563 8.70342 9.36298C8.70342 7.26948 10.4067 5.56641 12.5 5.56641C14.5933 5.56641 16.2966 7.26948 16.2966 9.36298C16.2966 11.4563 14.5933 13.1596 12.5 13.1596ZM20.8359 19.7233C20.4626 18.2184 19.6842 16.8308 18.5726 15.7192C17.6723 14.819 16.6073 14.1436 15.4457 13.7203C16.8421 12.7733 17.7614 11.1734 17.7614 9.36298C17.7614 6.46191 15.4011 4.10156 12.5 4.10156C9.59892 4.10156 7.23858 6.46191 7.23858 9.36298C7.23858 11.1744 8.15868 12.7748 9.5562 13.7217C8.48751 14.1111 7.49855 14.7133 6.64768 15.506C5.41553 16.6534 4.5599 18.1166 4.16317 19.7222C2.48299 17.7853 1.46484 15.2594 1.46484 12.5C1.46484 6.41518 6.41518 1.46484 12.5 1.46484C18.5848 1.46484 23.5352 6.41518 23.5352 12.5C23.5352 15.2599 22.5166 17.7864 20.8359 19.7233Z" fill="black" />
+							</svg>
+							<input data-required data-validate autocomplete="off" type="text" name="name" placeholder="Ваше ім’я" class="popup__field-input input" required>
+						</div>
+						<div class="popup__field">
+							<svg class="popup__field-icon" width="25" height="25" viewBox="0 0 25 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+								<path d="M19.7686 15.4869C19.256 14.9539 18.6378 14.669 17.9825 14.669C17.3326 14.669 16.7091 14.9487 16.1754 15.4816L14.5056 17.1436C14.3682 17.0698 14.2308 17.0012 14.0987 16.9326C13.9085 16.8376 13.7288 16.7479 13.5756 16.6529C12.0115 15.661 10.59 14.3683 9.22672 12.6956C8.56621 11.8619 8.12234 11.1602 7.8 10.4479C8.2333 10.0521 8.6349 9.64057 9.02593 9.24484C9.17388 9.0971 9.32184 8.94409 9.46979 8.79635C10.5795 7.6883 10.5795 6.25311 9.46979 5.14506L8.02722 3.7046C7.86341 3.54103 7.69432 3.37218 7.5358 3.20334C7.21875 2.8762 6.88585 2.53851 6.54238 2.22192C6.02982 1.71539 5.41685 1.44629 4.77219 1.44629C4.12752 1.44629 3.50399 1.71539 2.97558 2.22192C2.9703 2.2272 2.9703 2.2272 2.96501 2.23248L1.1684 4.04229C0.492032 4.71767 0.10629 5.54079 0.0217435 6.49583C-0.105076 8.03654 0.34936 9.47173 0.698114 10.4109C1.55415 12.7167 2.83291 14.8537 4.74048 17.1436C7.05494 19.9032 9.83968 22.0824 13.0207 23.6178C14.2361 24.193 15.8583 24.8736 17.6708 24.9897C17.7818 24.995 17.898 25.0002 18.0037 25.0002C19.2243 25.0002 20.2494 24.5623 21.0526 23.6917C21.0579 23.6811 21.0685 23.6759 21.0738 23.6653C21.3486 23.3329 21.6656 23.0321 21.9985 22.7103C22.2257 22.4939 22.4582 22.2671 22.6854 22.0296C23.2086 21.4861 23.4833 20.853 23.4833 20.204C23.4833 19.5497 23.2033 18.9218 22.6696 18.3942L19.7686 15.4869ZM21.6603 21.0429C21.655 21.0429 21.655 21.0482 21.6603 21.0429C21.4542 21.2645 21.2429 21.465 21.0156 21.6867C20.6722 22.0138 20.3234 22.3568 19.9958 22.7419C19.4621 23.3118 18.8333 23.5809 18.009 23.5809C17.9297 23.5809 17.8452 23.5809 17.7659 23.5756C16.1965 23.4754 14.7381 22.8633 13.6443 22.3409C10.6534 20.8952 8.02722 18.8427 5.84487 16.2414C4.04298 14.0728 2.83819 12.0677 2.04029 9.91495C1.54886 8.60112 1.3692 7.57749 1.44846 6.61191C1.5013 5.99457 1.73909 5.48275 2.17767 5.04481L3.97957 3.24555C4.23849 3.00283 4.51327 2.87092 4.78276 2.87092C5.11566 2.87092 5.38515 3.07143 5.55424 3.24027C5.55953 3.24555 5.56481 3.25083 5.5701 3.2561C5.89243 3.55686 6.19891 3.86817 6.52124 4.20058C6.68505 4.36943 6.85414 4.53827 7.02323 4.7124L8.46581 6.15286C9.02593 6.71216 9.02593 7.22925 8.46581 7.78855C8.31257 7.94157 8.16461 8.09458 8.01137 8.24232C7.5675 8.69609 7.14477 9.11821 6.68505 9.52977C6.67448 9.54032 6.66391 9.5456 6.65863 9.55615C6.20419 10.0099 6.28874 10.4531 6.38385 10.7539C6.38914 10.7697 6.39442 10.7856 6.39971 10.8014C6.77488 11.7089 7.30329 12.5637 8.10648 13.5821L8.11177 13.5873C9.57019 15.3813 11.1079 16.7796 12.8041 17.8507C13.0207 17.9879 13.2427 18.0987 13.454 18.2042C13.6443 18.2992 13.8239 18.3889 13.9772 18.4839C13.9983 18.4944 14.0194 18.5102 14.0406 18.5208C14.2202 18.6105 14.3893 18.6527 14.5637 18.6527C15.0023 18.6527 15.2771 18.3783 15.3669 18.2886L17.1741 16.4841C17.3537 16.3047 17.6391 16.0884 17.972 16.0884C18.2996 16.0884 18.5691 16.2941 18.7329 16.4735C18.7382 16.4788 18.7382 16.4788 18.7435 16.4841L21.655 19.3914C22.1993 19.9296 22.1993 20.4836 21.6603 21.0429Z" fill="black" />
+								<path d="M13.513 5.94627C14.8974 6.17843 16.155 6.83271 17.159 7.83523C18.163 8.83775 18.813 10.0935 19.0507 11.476C19.1089 11.8242 19.4101 12.0669 19.7535 12.0669C19.7958 12.0669 19.8328 12.0616 19.8751 12.0564C20.2661 11.9931 20.525 11.6237 20.4616 11.2332C20.1763 9.56062 19.3837 8.03573 18.1736 6.82743C16.9635 5.61913 15.4364 4.82767 13.7613 4.54274C13.3703 4.47942 13.0057 4.73797 12.937 5.12315C12.8683 5.50833 13.1219 5.88295 13.513 5.94627Z" fill="black" />
+								<path d="M24.9908 11.028C24.5205 8.27374 23.2206 5.76744 21.2232 3.77295C19.2258 1.77846 16.7158 0.480461 13.9575 0.0108597C13.5718 -0.0577338 13.2071 0.206087 13.1385 0.591266C13.075 0.981722 13.334 1.34579 13.725 1.41439C16.1874 1.83123 18.4332 2.99732 20.2192 4.77547C22.0052 6.5589 23.1678 8.80138 23.5852 11.2602C23.6433 11.6084 23.9445 11.8512 24.288 11.8512C24.3303 11.8512 24.3673 11.8459 24.4095 11.8406C24.7953 11.7826 25.0595 11.4132 24.9908 11.028Z" fill="black" />
+							</svg>
+							<input data-required data-validate autocomplete="off" type="text" name="tel" placeholder="Номер телефону" class="popup__field-input input" required>
+						</div>
+						<button type="submit" class="popup__btn button-filled">
+							Відправити
+						</button>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+	<script src="js/app.min.js?_v=20240928232655"></script>
+</body>
+
+</html>
